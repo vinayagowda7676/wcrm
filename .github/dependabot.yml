@@ -9,7 +9,7 @@ updates:
       day: monday
     open-pull-requests-limit: 5
     reviewers:
-      - ArnasDon
+      - vinayagowda7676
     labels:
       - dependencies
     groups:
@@ -37,6 +37,12 @@ updates:
       - dependency-name: react-dom
       - dependency-name: tailwindcss
       - dependency-name: eslint-config-next
+      # typescript-eslint (via eslint-config-next) rejects TS 7 and the
+      # lint config isn't ESLint 10-ready — both break `npm run lint`.
+      - dependency-name: typescript
+        versions: [">=7"]
+      - dependency-name: eslint
+        versions: [">=10"]
 
   # GitHub Actions in .github/workflows/. Catches setup-node /
   # checkout version bumps that keep the CI matrix healthy.
@@ -47,7 +53,7 @@ updates:
       day: monday
     open-pull-requests-limit: 3
     reviewers:
-      - ArnasDon
+      - vinayagowda7676
     labels:
       - dependencies
       - github-actions
